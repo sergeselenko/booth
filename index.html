@@ -4,24 +4,134 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Voice Ordering</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100vw;height:100vh;overflow:hidden;background:#0a1628}
-.c{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#0d1b2a 0%,#0a1628 50%,#060f1d 100%)}
-.m{text-align:center;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;line-height:.82;width:100%}
-.a{font-size:46vw;color:#fff;display:block;letter-spacing:-.02em}
-.v{font-size:34vw;color:rgba(255,255,255,.85);display:block;letter-spacing:.02em}
-.o{font-size:22vw;color:#0a1628;display:block;letter-spacing:.08em;background:#00e5ff;padding:2.5vh 0;width:100%;margin-top:1vh}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#0d1b2a}
+
+.c{
+  width:100vw;height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;
+  background:linear-gradient(180deg,#0d1b2a 0%,#1b2a3d 40%,#0d1b2a 100%);
+  position:relative;
+}
+
+/* Subtle radial glow behind text */
+.c::before{
+  content:'';position:absolute;
+  top:15%;left:50%;transform:translateX(-50%);
+  width:90vw;height:50vh;
+  background:radial-gradient(ellipse,rgba(220,38,38,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* Main headline block */
+.m{
+  text-align:center;text-transform:uppercase;
+  font-family:'Bebas Neue',sans-serif;
+  width:100%;flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:2vh 0;
+  line-height:1;
+}
+
+.a{
+  font-size:48vw;color:#ffffff;display:block;
+  letter-spacing:-.01em;
+  text-shadow:0 0 60px rgba(220,38,38,.3);
+  line-height:.85;
+}
+.v{
+  font-size:36vw;color:rgba(255,255,255,.9);display:block;
+  letter-spacing:.04em;
+  line-height:.9;
+}
+.o{
+  font-size:24vw;color:#fff;display:block;
+  letter-spacing:.06em;
+  background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%);
+  padding:2vh 0;width:100%;
+  margin-top:1.5vh;
+  line-height:1;
+  box-shadow:0 4px 30px rgba(220,38,38,.4);
+}
+
+/* Stats bar */
+.stats{
+  width:100%;
+  display:flex;justify-content:space-evenly;align-items:center;
+  padding:2vh 2vw;
+  background:rgba(255,255,255,.06);
+  border-top:1px solid rgba(255,255,255,.1);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.stat{text-align:center;flex:1}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:9vw;color:#dc2626;
+  line-height:1;
+}
+.stat-label{
+  font-family:'Oswald',sans-serif;
+  font-size:3.2vw;color:rgba(255,255,255,.6);
+  text-transform:uppercase;letter-spacing:.08em;
+  font-weight:500;
+  line-height:1.2;
+}
+.stat-div{
+  width:1px;height:6vh;
+  background:rgba(255,255,255,.15);
+}
+
+/* CTA */
+.cta{
+  width:100%;padding:2.5vh 0;
+  text-align:center;
+  background:linear-gradient(135deg,#dc2626 0%,#991b1b 100%);
+}
+.cta span{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:7vw;color:#fff;
+  letter-spacing:.12em;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+
+/* Pulse animation on CTA */
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:.7}
+}
+.cta{animation:pulse 3s ease-in-out infinite}
 </style>
 </head>
 <body>
 <div class="c">
-<div class="m">
-<span class="a">AI</span>
-<span class="v">VOICE</span>
-<span class="o">ORDERING</span>
-</div>
+  <div class="m">
+    <span class="a">AI</span>
+    <span class="v">VOICE</span>
+    <span class="o">ORDERING</span>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">57+</div>
+      <div class="stat-label">Languages</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <div class="stat-num">99%</div>
+      <div class="stat-label">Accuracy</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always On</div>
+    </div>
+  </div>
+  <div class="cta">
+    <span>ASK FOR A LIVE DEMO</span>
+  </div>
 </div>
 </body>
 </html>
