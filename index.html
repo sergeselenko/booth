@@ -4,237 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Voice Ordering</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #dc2626;
-    font-family: 'Bebas Neue', sans-serif;
-  }
-
-  .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: #dc2626;
-    background-image: 
-      radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 80%, rgba(0,0,0,0.2) 0%, transparent 60%);
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 30px;
-  }
-
-  .phone-icon {
-    width: 90px;
-    height: 90px;
-    border: 4px solid #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px auto;
-    animation: ring 2s ease-in-out infinite;
-    background: rgba(255,255,255,0.1);
-  }
-
-  @keyframes ring {
-    0%, 100% { transform: rotate(0deg); box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
-    10% { transform: rotate(-12deg); }
-    20% { transform: rotate(12deg); }
-    30% { transform: rotate(-8deg); }
-    40% { transform: rotate(8deg); }
-    50% { transform: rotate(0deg); box-shadow: 0 0 40px 15px rgba(255,255,255,0.15); }
-    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
-  }
-
-  .phone-icon svg {
-    width: 44px;
-    height: 44px;
-    fill: #ffffff;
-  }
-
-  .main-text {
-    font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase;
-    line-height: 0.92;
-    margin-bottom: 15px;
-  }
-
-  .line-ai {
-    font-size: 22vw;
-    color: #ffffff;
-    display: block;
-    letter-spacing: 0.05em;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-
-  .line-voice {
-    font-size: 17vw;
-    color: #ffffff;
-    display: block;
-    letter-spacing: 0.08em;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-
-  .line-ordering {
-    font-size: 13vw;
-    color: #1a0000;
-    display: block;
-    letter-spacing: 0.12em;
-    background: #ffffff;
-    padding: 8px 0;
-    margin: 15px -30px 0 -30px;
-  }
-
-  .divider {
-    width: 80px;
-    height: 4px;
-    background: #ffffff;
-    margin: 30px auto;
-    opacity: 0.6;
-  }
-
-  .tagline {
-    font-family: 'Space Mono', monospace;
-    font-size: 15px;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 2;
-  }
-
-  .tagline strong {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 18px;
-    background: rgba(0,0,0,0.2);
-    padding: 2px 10px;
-  }
-
-  .stats {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 35px;
-    background: rgba(0,0,0,0.15);
-    padding: 20px 30px;
-    border-radius: 8px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    color: #ffffff;
-    line-height: 1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  }
-
-  .stat-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 4px;
-  }
-
-  .cta {
-    margin-top: 40px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: #dc2626;
-    background: #ffffff;
-    padding: 18px 50px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    display: inline-block;
-    animation: ctaPulse 2.5s ease-in-out infinite;
-  }
-
-  @keyframes ctaPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); transform: scale(1); }
-    50% { box-shadow: 0 0 40px 10px rgba(255,255,255,0.2); transform: scale(1.02); }
-  }
-
-  .bottom-accent {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: rgba(0,0,0,0.3);
-  }
-
-  .top-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: rgba(0,0,0,0.3);
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000}
+.c{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000}
+.m{text-align:center;text-transform:uppercase;font-family:'Bebas Neue',sans-serif;line-height:.85;width:100%}
+.a{font-size:42vw;color:#00e5ff;display:block;letter-spacing:-.02em;text-shadow:0 0 60px rgba(0,229,255,.3)}
+.v{font-size:32vw;color:#fff;display:block;letter-spacing:.02em}
+.o{font-size:21vw;color:#000;display:block;letter-spacing:.06em;background:#00e5ff;padding:2vh 0;margin:1vh 0 0 0;width:100%;box-shadow:0 0 60px rgba(0,229,255,.4)}
+.tag{font-family:'Bebas Neue',sans-serif;font-size:5vh;color:rgba(255,255,255,.7);letter-spacing:.3em;text-transform:uppercase;margin-top:4vh}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="top-accent"></div>
-
-  <div class="content">
-    <div class="phone-icon">
-      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    </div>
-
-    <div class="main-text">
-      <span class="line-ai">AI</span>
-      <span class="line-voice">Voice</span>
-      <span class="line-ordering">Ordering</span>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="tagline">
-      <strong>3 rings.</strong> No answer?<br>
-      AI takes the order.<br>
-      Not voicemail.
-    </div>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-number">57+</div>
-        <div class="stat-label">Languages</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">99%</div>
-        <div class="stat-label">Accuracy</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Always On</div>
-      </div>
-    </div>
-
-    <div class="cta">Ask For A Live Demo</div>
-  </div>
-
-  <div class="bottom-accent"></div>
+<div class="c">
+<div class="m">
+<span class="a">AI</span>
+<span class="v">VOICE</span>
+<span class="o">ORDERING</span>
+</div>
+<div class="tag">NEVER MISS AN ORDER</div>
 </div>
 </body>
 </html>
